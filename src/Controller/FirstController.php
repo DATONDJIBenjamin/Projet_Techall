@@ -38,13 +38,14 @@ class FirstController extends AbstractController
        
     }
 
-    #[Route('/SayHello1/{name}/{firstname}', name: 'app_hello1')]
+   // #[Route('/SayHello1/{name}/{firstname}', name: 'app_hello1')]
     public function SayHello1(Request $request, $name,$firstname): Response
     {
        
         return $this->render('first/hello1.html.twig',[
             'nom'=> $name,
-            'prenom'=>$firstname
+            'prenom'=>$firstname,
+          //  'path' => '    '
         ]);
        
     }
@@ -54,5 +55,13 @@ class FirstController extends AbstractController
         $resultat = $entier1*$entier2;
         return new Response("<h1>$resultat</h1>");
     }
+
+    #[Route('/template', name: 'app_template')]
+    public function template(): Response
+    {
+        return $this->render('Template.html.twig');
+       
+    }
+
 }
 
